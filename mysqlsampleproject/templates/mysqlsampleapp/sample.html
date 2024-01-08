@@ -1,0 +1,34 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static "css/sample.css" %}" />
+</head>
+<body>
+  <h1>
+    <h1>Jobs info</h1>
+  {% if hyd_jobs_list %}
+    <table>
+        <thead>
+            <th>date</th>
+            <th>company</th>
+            <th>title</th>
+            <th>eligibility</th>
+            <th>address</th>
+            <th>email</th>
+            <th>phonenumber</th>
+        </thead>
+        {% for hyd_job in hyd_jobs_list %}
+            <tr>
+                <td>{{hyd_job.date}}</td>
+                <td>{{hyd_job.company}}</td>
+                <td>{{hyd_job.title}}</td>
+                <td>{{hyd_job.eligibility}}</td>
+                <td>{{hyd_job.address}}</td>
+                <td>{{hyd_job.email}}</td>
+                <td>{{hyd_job.phonenumber}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No Employees Found</p>
+  {% endif %}
+</body>
