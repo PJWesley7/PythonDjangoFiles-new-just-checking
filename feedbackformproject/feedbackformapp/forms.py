@@ -7,8 +7,12 @@ class feedbackform(forms.Form):
     email = forms.EmailField()
     feedback = forms.CharField(widget=forms.Textarea)
 
-    def clean_name(self):
-        inputname = self.cleaned_data['name']
+    def clean(self):
+        cleaned_data = super().clean()
+        inputname = cleaned_data['name']
         if len(inputname)<4:
             raise forms.ValidationError("Invalid name")
+        imputrollno = cleaned_data['rollno']
+        if len(str(imputrollno)) !=3:
+            raise forms.ValidationError("Invalid roll no")
         return inputname
