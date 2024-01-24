@@ -1,0 +1,10 @@
+<!-- fileupload/templates/fileupload/home.html -->
+
+{% extends 'awsfileuploadapp/base.html' %} {% block content %}
+<h2>List of Uploaded Files</h2>
+<ul>
+  {% for file in files %}
+  <li>{{ file.file.name }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
